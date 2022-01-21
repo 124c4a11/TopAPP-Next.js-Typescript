@@ -4,7 +4,7 @@ body {
   padding: 0;
 
   color: var(--black);
-  background-color: #e5e5e5;
+  background-color: var(--white);
 
   font-family: "Noto Sans KR", sans-serif;
 }
