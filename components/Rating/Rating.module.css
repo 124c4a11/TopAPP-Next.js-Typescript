@@ -1,0 +1,18 @@
+.rating {
+  display: flex;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  line-height: 1;
+}
+
+.rating-item { flex-shrink: 0; }
+
+.rating-item + .rating-item { padding-left: 5px; }
+
+.rating-item-editable { cursor: pointer; }
+
+.star-filled { fill: var(--primary); }
