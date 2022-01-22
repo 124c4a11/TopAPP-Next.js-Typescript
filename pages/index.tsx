@@ -1,9 +1,13 @@
-import { Button, Htag, P, Tag } from '../components';
+import { Button, H, P, Tag } from '../components';
 
 export default function Home(): JSX.Element {
   return (
     <>
-      <Htag tag="h1">Hedline 1</Htag>
+      <H tag="h1">Headline 1</H>
+      <H>Headline 1 empty</H>
+      <H tag="h2">Headline 2</H>
+      <H tag="h3">Headline 3</H>
+
       <Button appearance="primary" arrow="right">Button</Button>
       <Button appearance="ghost" arrow="down">Button</Button>
 
