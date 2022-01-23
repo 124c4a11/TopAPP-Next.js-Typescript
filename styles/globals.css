@@ -6,7 +6,7 @@ body {
   color: var(--black);
   background-color: var(--white);
 
-  font-family: "Noto Sans KR", sans-serif;
+  font: var(--font-size-base) var(--font-family);
 }
 
 a {
@@ -28,6 +28,8 @@ a {
   --green-light: #c8f8e4;
   --primary: #7653fc;
   --primary-hover: #6344df;
+  --font-size-base: 16px;
   --font-family: "Noto Sans KR", sans-serif;
   --duration-base: 0.25s;
+  --tablet-width: 765px;
 }
