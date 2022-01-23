@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
 import { Button, H, P, Rating, Tag } from '../components';
+import { withLayout } from '../layout/Layout';
 
-export default function Home(): JSX.Element {
+function Home(): JSX.Element {
   const [rating, setRating] = useState<number>(3);
 
   return (
@@ -28,10 +29,12 @@ export default function Home(): JSX.Element {
       <Tag color="primary">Primary</Tag>
       <Tag size="md" color="green">Middle</Tag>
       <Tag size="sm" color="red">Small</Tag>
-      <Tag size="md" color="red" href="#" className="test-class-name" tab-index="0">Link</Tag>
+      <Tag size="md" color="red" href="#" className="test-class-name">Link</Tag>
 
       <Rating className="test-class-name" rating={2} />
       <Rating rating={rating} isEditable setRating={setRating} />
     </>
   );
 }
+
+export default withLayout(Home);
