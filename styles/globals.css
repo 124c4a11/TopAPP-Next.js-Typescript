@@ -4,9 +4,20 @@ body {
   padding: 0;
 
   color: var(--black);
-  background-color: var(--white);
+  background-color: #f5f6f8;
 
-  font: var(--font-size-base) var(--font-family);
+  font:
+    var(--font-size-base) -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
 
 a {
@@ -22,6 +33,7 @@ a {
 :root {
   --black: #3b434e;
   --gray-light: #ebebeb;
+  --gray-dark: #787d85;
   --white: #fff;
   --red: #fc836d;
   --green: #1dc37e;
@@ -29,7 +41,18 @@ a {
   --primary: #7653fc;
   --primary-hover: #6344df;
   --font-size-base: 16px;
-  --font-family: "Noto Sans KR", sans-serif;
+  --font-family:
+    -apple-system,
+    blinkmacsystemfont,
+    "Segoe UI",
+    roboto,
+    oxygen,
+    ubuntu,
+    cantarell,
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
   --duration-base: 0.25s;
   --tablet-width: 765px;
 }
