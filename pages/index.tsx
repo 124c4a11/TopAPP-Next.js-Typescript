@@ -36,10 +36,6 @@ function Home({ menu }: IHomeProps): JSX.Element {
 
       <Rating className="test-class-name" rating={2} />
       <Rating rating={rating} isEditable setRating={setRating} />
-
-      <ul>
-        {menu.map((item) => <li key={item._id.secondCategory}>{item._id.secondCategory}</li>)}
-      </ul>
     </>
   );
 }
