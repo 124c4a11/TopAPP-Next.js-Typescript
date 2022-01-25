@@ -60,6 +60,8 @@
 }
 
 .third-level {
+  display: none;
+
   margin-bottom: 20px;
   padding: 0;
 }
@@ -71,3 +73,5 @@
   font-weight: 500;
   line-height: 19px;
 }
+
+.third-level-opened { display: block; }
