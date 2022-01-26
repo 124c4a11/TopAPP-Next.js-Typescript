@@ -6,7 +6,7 @@ import { Button, H, P, Rating, Tag } from '../components';
 import { withLayout } from '../layout/Layout';
 import { IMenuItem } from '../interfaces/menu.interface';
 
-function Home({ menu }: IHomeProps): JSX.Element {
+function Home(): JSX.Element {
   const [rating, setRating] = useState<number>(3);
 
   return (

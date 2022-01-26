@@ -50,6 +50,8 @@ export const Menu = (): JSX.Element => {
   );
 
   const buildSecondLevel = (menuItem: IFirstLevelMenu) => {
+    if (!menu.length) return;
+
     const itemClassName = cn(
       styles['item'],
       styles['second-level-item'],
