@@ -2,9 +2,21 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 20px;
+
   align-items: center;
   justify-items: left;
 
   padding-top: 40px;
   padding-bottom: 20px;
 }
+
+.hh-title {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+
+  align-items: center;
+  justify-items: left;
+}
+
+.section-title { margin-bottom: 20px; }
