@@ -26,6 +26,12 @@ export const TopPageComponent = ({ page, products, firstCategory }: ITopPageComp
           <HhData {...page.hh} />
         </>
       }
+      {
+        page.advantages && page.advantages.length > 0 &&
+        <>
+          <H tag="h2" className={styles['section-title']}>Преимущества</H>
+        </>
+      }
     </>
   );
 };
