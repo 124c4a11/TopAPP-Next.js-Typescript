@@ -1,7 +1,7 @@
 import cn from 'classnames';
 
 import styles from './TopPageComponent.module.css';
-import { H, HhData, Tag } from '../../components';
+import { Advantages, H, HhData, Tag } from '../../components';
 import { ITopPageComponentProps } from './TopPageComponent.props';
 import { TopLevelCategory } from '../../interfaces/page.interface';
 
@@ -30,6 +30,7 @@ export const TopPageComponent = ({ page, products, firstCategory }: ITopPageComp
         page.advantages && page.advantages.length > 0 &&
         <>
           <H tag="h2" className={styles['section-title']}>Преимущества</H>
+          <Advantages advantages={page.advantages} />
         </>
       }
     </>
