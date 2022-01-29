@@ -7,7 +7,7 @@
     ". header header ."
     ". sidebar main ."
     "footer footer footer footer";
-  gap: 0 30px;
+  gap: 40px 30px;
 
   min-height: 100vh;
 }
@@ -35,4 +35,6 @@
   .header { display: block; }
 
   .sidebar { display: none !important; }
+
+  .main { padding: 0 15px; }
 }
