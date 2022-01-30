@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import parse from 'html-react-parser';
 
 import styles from './TopPageComponent.module.css';
 import { Advantages, H, HhData, P, Tag, TagList } from '../../components';
@@ -32,6 +33,9 @@ export const TopPageComponent = ({ page, products, firstCategory }: ITopPageComp
           <H tag="h2" className={styles['section-title']}>Преимущества</H>
           <Advantages advantages={page.advantages} />
         </>
+      }
+      {
+        page.seoText && parse(page.seoText)
       }
       {
         page.tags &&

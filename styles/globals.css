@@ -30,6 +30,24 @@ a {
   box-sizing: border-box;
 }
 
+h1 {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 35px;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
 :root {
   --black: #3b434e;
   --gray-light: #ebebeb;
@@ -40,7 +58,7 @@ a {
   --green-light: #c8f8e4;
   --primary: #7653fc;
   --primary-hover: #6344df;
-  --font-size-base: 16px;
+  --font-size-base: 18px;
   --font-family:
     -apple-system,
     blinkmacsystemfont,
