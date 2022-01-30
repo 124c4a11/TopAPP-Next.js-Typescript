@@ -2,20 +2,33 @@ import cn from 'classnames';
 import parse from 'html-react-parser';
 
 import styles from './TopPageComponent.module.css';
-import { Advantages, H, HhData, Tag, TagList } from '../../components';
+import { Advantages, H, HhData, Sort, Tag, TagList } from '../../components';
 import { ITopPageComponentProps } from './TopPageComponent.props';
 import { TopLevelCategory } from '../../interfaces/page.interface';
+import { SortEnum } from '../../components/Sort/Sort.props';
+import { useReducer } from 'react';
+import { sortReducer } from './sort.reducer';
 
 export const TopPageComponent = ({ page, products, firstCategory }: ITopPageComponentProps) => {
+  const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, {
+    products,
+    sort: SortEnum.Rating,
+  });
+
+  const setSort = (sort: SortEnum) => dispatchSort({ type: sort });
+
   return (
     <>
       <header className={styles.header}>
         <H>{page.title}</H>
         {products && <Tag color='gray'>{products.length}</Tag>}
-        <div>Сортировка</div>
+        <Sort
+          sort={sort}
+          setSort={setSort}
+        />
       </header>
       <div className={styles['section']}>
-        {products && products.map((product) => <div key={product._id}>{product.title}</div>)}
+        {sortedProducts && sortedProducts.map((product) => <div key={product._id}>{product.title}</div>)}
       </div>
       {
         firstCategory === TopLevelCategory.Courses && page.hh &&
