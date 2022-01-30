@@ -1,13 +1,14 @@
 .header {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 20px;
 
   align-items: center;
-  justify-items: left;
+
+  margin-bottom: 20px;
 
   padding-top: 7px;
-  margin-bottom: 20px;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  justify-items: left;
 }
 
 .hh-title {
@@ -18,5 +19,7 @@
   align-items: center;
   justify-items: left;
 }
+
+.section + .section { margin-top: 50px; }
 
 .section-title { margin-bottom: 20px; }
