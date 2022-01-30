@@ -4,7 +4,7 @@ import styles from './HhData.module.css';
 import RateIcon from './star.svg';
 import { IHhDataProps } from './HhData.props';
 import { Card } from '..';
-import { priceRu } from '../../helpers/helpers';
+import { formatNumber, priceRu } from '../../helpers/helpers';
 
 export const HhData = ({
   count,
@@ -22,7 +22,7 @@ export const HhData = ({
             styles["hh-value-lg"],
             styles["hh-value-primary"]
           )}
-        >{count}</div>
+        >{formatNumber(count)}</div>
       </Card>
       <Card className={styles["hh-card"]}>
         <ul className={styles["hh-list"]}>
