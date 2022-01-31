@@ -8,3 +8,4 @@ export * from './HhData/Hhdata';
 export * from './Advantages/Advantages';
 export * from './TagList/TagList';
 export * from './Sort/Sort';
+export * from './Input/Input';

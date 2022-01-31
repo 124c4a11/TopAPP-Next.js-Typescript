@@ -5,6 +5,16 @@ body {
 
   color: var(--black);
   background-color: #f5f6f8;
+}
+
+a {
+  text-decoration: none;
+
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
 
   font:
     var(--font-size-base) -apple-system,
@@ -18,16 +28,6 @@ body {
     "Droid Sans",
     "Helvetica Neue",
     sans-serif;
-}
-
-a {
-  text-decoration: none;
-
-  color: inherit;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 h1 {
@@ -50,8 +50,9 @@ h3 {
 
 :root {
   --black: #3b434e;
-  --gray-light: #ebebeb;
   --gray-dark: #787d85;
+  --gray: #a4a4a4;
+  --gray-light: #ebebeb;
   --white: #fff;
   --red: #fc836d;
   --green: #1dc37e;
