@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import { useState } from 'react';
 import axios from 'axios';
 
-import { Button, H, Input, P, Rating, Tag } from '../components';
+import { Button, H, Input, P, Rating, Tag, Textarea } from '../components';
 import { withLayout } from '../layout/Layout';
 import { IMenuItem } from '../interfaces/menu.interface';
 
@@ -37,6 +37,7 @@ function Home(): JSX.Element {
       <Rating className="test-class-name" rating={2} />
       <Rating rating={rating} isEditable setRating={setRating} />
       <Input placeholder='placeholder' />
+      <Textarea placeholder='placeholder' />
     </>
   );
 }
