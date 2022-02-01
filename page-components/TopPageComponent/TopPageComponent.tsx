@@ -2,7 +2,7 @@ import cn from 'classnames';
 import parse from 'html-react-parser';
 
 import styles from './TopPageComponent.module.css';
-import { Advantages, H, HhData, Sort, Tag, TagList } from '../../components';
+import { Advantages, H, HhData, Product, Sort, Tag, TagList } from '../../components';
 import { ITopPageComponentProps } from './TopPageComponent.props';
 import { TopLevelCategory } from '../../interfaces/page.interface';
 import { SortEnum } from '../../components/Sort/Sort.props';
@@ -28,7 +28,7 @@ export const TopPageComponent = ({ page, products, firstCategory }: ITopPageComp
         />
       </header>
       <div className={styles['section']}>
-        {sortedProducts && sortedProducts.map((product) => <div key={product._id}>{product.title}</div>)}
+        {sortedProducts && sortedProducts.map((product) => <Product product={product} key={product._id} />)}
       </div>
       {
         firstCategory === TopLevelCategory.Courses && page.hh &&

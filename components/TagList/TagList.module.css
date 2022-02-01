@@ -8,7 +8,12 @@
   list-style: none;
 }
 
-.tag-list-item {
+.tag-list-item-sm {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.tag-list-item-md {
   margin-right: 10px;
   margin-bottom: 10px;
 }
