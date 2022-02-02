@@ -27,9 +27,20 @@ export const TopPageComponent = ({ page, products, firstCategory }: ITopPageComp
           setSort={setSort}
         />
       </header>
-      <div className={styles['section']}>
-        {sortedProducts && sortedProducts.map((product) => <Product product={product} key={product._id} />)}
-      </div>
+      {
+        sortedProducts &&
+        <div className={styles['section']}>
+          <ul className={styles['product-list']}>
+            {
+              sortedProducts.map((product) => (
+                <li key={product._id}>
+                  <Product product={product} />
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      }
       {
         firstCategory === TopLevelCategory.Courses && page.hh &&
         <section className={styles['section']}>
