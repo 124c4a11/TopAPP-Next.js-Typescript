@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import { Card, H, Rating, Tag, TagList } from '..';
+import { Card, H, P, Rating, Tag, TagList } from '..';
 import { priceRu } from '../../helpers/helpers';
 
 import styles from './Product.module.css';
@@ -40,6 +40,36 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
           </div>
         </div>
       </header>
+      <div className={styles['body']}>
+        <P className={styles['description']}>{product.description}</P>
+        <ul className={styles['features']}>
+          {
+            product.characteristics.map((item) => (
+              <li className={styles['features-item']} key={item.name}>
+                <div className={styles['features-item-title']}>{item.name}</div>
+                <div className={styles['features-item-divider']}></div>
+                <div className={styles['features-item-value']}>{item.value}</div>
+              </li>
+            ))
+          }
+        </ul>
+        <div>
+          {
+            product.advantages &&
+            <div className={cn(styles['info'], styles['info-green'])}>
+              <h4 className={styles['info-title']}>Преимущеста</h4>
+              <P>{product.advantages}</P>
+            </div>
+          }
+          {
+            product.disadvantages &&
+            <div className={cn(styles['info'], styles['info-red'])}>
+              <h4 className={styles['info-title']}>Недостатки</h4>
+              <P>{product.disadvantages}</P>
+            </div>
+          }
+        </div>
+      </div>
     </Card>
   );
 };
