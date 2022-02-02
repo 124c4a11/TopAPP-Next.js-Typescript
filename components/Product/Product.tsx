@@ -8,7 +8,11 @@ import { IProductProps } from './Product.props';
 
 export const Product = ({ product, className, ...props }: IProductProps) => {
   return (
-    <Card className={cn(className, styles['product'])} {...props}>
+    <Card
+      className={cn(className, styles['product'])}
+      {...props}
+      color='white'
+    >
       <header className={styles['header']}>
         <div className={styles['logo']}></div>
         <div>
