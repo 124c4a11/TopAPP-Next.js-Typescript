@@ -4,7 +4,7 @@ import styles from './Button.module.css';
 import { IButtonProps } from './Button.props';
 import ArrowIcon from './arrow.svg';
 
-export const Button = ({ appearance, arrow = 'none', children, className, ...props }: IButtonProps): JSX.Element => {
+export const Button = ({ appearance = 'primary', arrow = 'none', children, className, ...props }: IButtonProps): JSX.Element => {
   const btnClassName = cn(
     styles.btn,
     className,

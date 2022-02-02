@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import { Card, H, P, Rating, Tag, TagList } from '..';
+import { Button, Card, H, P, Rating, Tag, TagList } from '..';
 import { priceRu } from '../../helpers/helpers';
 
 import styles from './Product.module.css';
@@ -40,6 +40,7 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
           </div>
         </div>
       </header>
+
       <div className={styles['body']}>
         <P className={styles['description']}>{product.description}</P>
         <ul className={styles['features']}>
@@ -70,6 +71,11 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
           }
         </div>
       </div>
+
+      <footer className={styles['footer']}>
+        <Button>Узнать подробнее</Button>
+        <Button appearance='ghost'>Читать отзывы</Button>
+      </footer>
     </Card>
   );
 };
