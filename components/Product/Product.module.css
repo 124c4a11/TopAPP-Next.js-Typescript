@@ -125,6 +125,41 @@
   border-top: 1px solid var(--gray-light);
 }
 
+.review {
+  margin-top: -5px;
+
+  border-radius: 0 0 5px 5px;
+}
+
+.review-closed {
+  overflow: hidden;
+
+  max-height: 0;
+  padding: 0;
+}
+
+.review-opened {
+  max-height: auto;
+  padding: 30px;
+}
+
+.review-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.review-list-item {
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid var(--gray-light);
+}
+
 @media (max-width: 1430px) {
   .header {
     grid-template-columns: 70px 1fr;
