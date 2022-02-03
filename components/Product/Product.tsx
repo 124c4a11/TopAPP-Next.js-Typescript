@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import Image from 'next/image';
 
 import { Button, Card, H, P, Rating, Tag, TagList } from '..';
 import { declOfNum, priceRu } from '../../helpers/helpers';
@@ -14,7 +15,14 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
       color='white'
     >
       <header className={styles['header']}>
-        <div className={styles['logo']}></div>
+        <div className={styles['logo']}>
+          <Image
+            src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
+            title={product.title}
+            width={70}
+            height={70}
+          />
+        </div>
         <div>
           <H tag='h3' className={styles['title']}>{product.title}</H>
           <TagList tags={product.categories} color='ghost' size='sm' />
