@@ -34,3 +34,9 @@
 
   list-style: none;
 }
+
+@media (max-width: 640px) {
+  .header {
+    grid-template-columns: auto 1fr;
+  }
+}
