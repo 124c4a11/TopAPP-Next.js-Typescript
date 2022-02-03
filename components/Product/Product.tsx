@@ -1,7 +1,7 @@
 import cn from 'classnames';
 
 import { Button, Card, H, P, Rating, Tag, TagList } from '..';
-import { priceRu } from '../../helpers/helpers';
+import { declOfNum, priceRu } from '../../helpers/helpers';
 
 import styles from './Product.module.css';
 import { IProductProps } from './Product.props';
@@ -36,7 +36,7 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
           </div>
           <div className={cn(styles['meta-item'], styles['meta-rating'])}>
             <Rating rating={product.reviewAvg ?? product.initialRating} />
-            <p className={styles['meta-text']}>{product.reviewCount} отзывов</p>
+            <p className={styles['meta-text']}>{product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</p>
           </div>
         </div>
       </header>
