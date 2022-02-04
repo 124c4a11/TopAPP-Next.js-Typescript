@@ -2,7 +2,7 @@ import cn from 'classnames';
 import Image from 'next/image';
 import { useState } from 'react';
 
-import { Button, Card, H, P, Rating, Review, Tag, TagList } from '..';
+import { Button, Card, H, P, Rating, Review, ReviewForm, Tag, TagList } from '..';
 import { declOfNum, priceRu } from '../../helpers/helpers';
 
 import styles from './Product.module.css';
@@ -111,6 +111,7 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
             }
           </ul>
         }
+        <ReviewForm productId={product._id} />
       </Card>
     </>
   );
