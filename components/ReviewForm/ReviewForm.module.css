@@ -38,9 +38,20 @@
   margin-top: 20px;
   padding: 15px 30px 15px 20px;
 
-  color: green;
   border-radius: 5px;
+}
+
+.info-success {
+  color: green;
   background-color: var(--green-light);
+}
+
+.info-error {
+  background-color: var(--red);
+}
+
+.info-error .info-close-btn svg path {
+  stroke: var(--black);
 }
 
 .info-title {
