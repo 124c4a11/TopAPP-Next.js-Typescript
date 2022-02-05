@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Button, H, Input, P, Rating, Tag, Textarea } from '../components';
 import { withLayout } from '../layout/Layout';
 import { IMenuItem } from '../interfaces/menu.interface';
+import { API } from '../helpers/api';
 
 function Home(): JSX.Element {
   const [rating, setRating] = useState<number>(3);
@@ -46,7 +47,7 @@ export default withLayout(Home);
 
 export const getStaticProps: GetStaticProps<IHomeProps> = async () => {
   const firstCategory = 0;
-  const { data: menu } = await axios.post<IMenuItem[]>(`${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/find`, {
+  const { data: menu } = await axios.post<IMenuItem[]>(API.topPage.find, {
     firstCategory
   });
 
