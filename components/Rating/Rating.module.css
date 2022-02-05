@@ -16,3 +16,7 @@
 .rating-item-editable { cursor: pointer; }
 
 .star-filled { fill: var(--primary); }
+
+.error-msg { color: var(--red); }
+
+.rating-error svg { stroke: var(--red); }

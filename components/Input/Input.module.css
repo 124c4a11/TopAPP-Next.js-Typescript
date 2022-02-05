@@ -13,3 +13,9 @@
 }
 
 .input::placeholder { color: var(--gray); }
+
+.input-error {
+  border: 2px solid var(--red);
+}
+
+.error-msg { color: var(--red); }

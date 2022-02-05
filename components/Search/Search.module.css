@@ -1,6 +1,6 @@
 .search { position: relative; }
 
-.input {
+.input input {
   width: 100%;
   padding-right: 47px;
 }
