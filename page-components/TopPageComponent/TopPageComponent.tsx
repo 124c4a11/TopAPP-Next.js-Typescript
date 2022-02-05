@@ -1,13 +1,14 @@
 import cn from 'classnames';
 import parse from 'html-react-parser';
 
+import { useEffect, useReducer } from 'react';
+
 import styles from './TopPageComponent.module.css';
-import { Advantages, H, HhData, Product, Sort, Tag, TagList } from '../../components';
-import { ITopPageComponentProps } from './TopPageComponent.props';
-import { TopLevelCategory } from '../../interfaces/page.interface';
 import { SortEnum } from '../../components/Sort/Sort.props';
-import { useReducer } from 'react';
 import { sortReducer } from './sort.reducer';
+import { TopLevelCategory } from '../../interfaces/page.interface';
+import { ITopPageComponentProps } from './TopPageComponent.props';
+import { Advantages, H, HhData, Product, Sort, Tag, TagList } from '../../components';
 
 export const TopPageComponent = ({ page, products, firstCategory }: ITopPageComponentProps) => {
   const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, {
@@ -16,6 +17,10 @@ export const TopPageComponent = ({ page, products, firstCategory }: ITopPageComp
   });
 
   const setSort = (sort: SortEnum) => dispatchSort({ type: sort });
+
+  useEffect(() => {
+    dispatchSort({ type: 'reset', initialState: products });
+  }, [products]);
 
   return (
     <>
