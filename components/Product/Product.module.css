@@ -53,6 +53,12 @@
   line-height: 19px;
 }
 
+.meta-link {
+  transition: color var(--duration-base);
+}
+
+.meta-link:hover { color: var(--primary); }
+
 .body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

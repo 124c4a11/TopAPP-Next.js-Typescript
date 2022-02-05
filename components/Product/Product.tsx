@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { Button, Card, H, P, Rating, Review, ReviewForm, Tag, TagList } from '..';
 import { declOfNum, priceRu } from '../../helpers/helpers';
@@ -11,11 +11,21 @@ import { IProductProps } from './Product.props';
 export const Product = ({ product, className, ...props }: IProductProps) => {
   const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
 
+  const reviewRef = useRef<HTMLDivElement>(null);
+
+  const scrollToReview = () => {
+    setIsReviewOpened(true);
+
+    reviewRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
+
   return (
-    <>
+    <div className={className} {...props}>
       <Card
         className={cn(className, styles['product'])}
-        {...props}
         color='white'
       >
         <header className={styles['header']}>
@@ -48,7 +58,15 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
             </div>
             <div className={cn(styles['meta-item'], styles['meta-rating'])}>
               <Rating rating={product.reviewAvg ?? product.initialRating} />
-              <p className={styles['meta-text']}>{product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</p>
+              <p className={styles['meta-text']}>
+                <a
+                  href="#ref"
+                  onClick={scrollToReview}
+                  className={styles['meta-link']}
+                >
+                  {product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
+                </a>
+              </p>
             </div>
           </div>
         </header>
@@ -93,12 +111,16 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
           >Читать отзывы</Button>
         </footer>
       </Card>
-      <Card color='blue' className={
-        cn(styles['review'], {
-          [styles['review-opened']]: isReviewOpened,
-          [styles['review-closed']]: !isReviewOpened,
-        })
-      }>
+      <Card
+        color='blue'
+        className={
+          cn(styles['review'], {
+            [styles['review-opened']]: isReviewOpened,
+            [styles['review-closed']]: !isReviewOpened,
+          })
+        }
+        ref={reviewRef}
+      >
         {
           product.reviews.length > 0 &&
           <ul className={styles['review-list']}>
@@ -113,6 +135,6 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
         }
         <ReviewForm productId={product._id} />
       </Card>
-    </>
+    </div>
   );
 };
