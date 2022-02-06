@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import parse from 'html-react-parser';
+import { motion } from 'framer-motion';
 
 import { useEffect, useReducer } from 'react';
 
@@ -38,9 +39,9 @@ export const TopPageComponent = ({ page, products, firstCategory }: ITopPageComp
           <ul className={styles['product-list']}>
             {
               sortedProducts.map((product) => (
-                <li key={product._id}>
+                <motion.li layout key={product._id}>
                   <Product product={product} />
-                </li>
+                </motion.li>
               ))
             }
           </ul>
