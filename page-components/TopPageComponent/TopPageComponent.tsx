@@ -9,7 +9,7 @@ import { SortEnum } from '../../components/Sort/Sort.props';
 import { sortReducer } from './sort.reducer';
 import { TopLevelCategory } from '../../interfaces/page.interface';
 import { ITopPageComponentProps } from './TopPageComponent.props';
-import { Advantages, H, HhData, Product, Sort, Tag, TagList } from '../../components';
+import { Advantages, H, HhData, Product, Sort, Tag, TagList, Up } from '../../components';
 
 export const TopPageComponent = ({ page, products, firstCategory }: ITopPageComponentProps) => {
   const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, {
@@ -77,6 +77,7 @@ export const TopPageComponent = ({ page, products, firstCategory }: ITopPageComp
           <TagList tags={page.tags} />
         </section>
       }
+      <Up />
     </>
   );
 };
