@@ -132,21 +132,15 @@
 }
 
 .review {
-  margin-top: -5px;
-
-  border-radius: 0 0 5px 5px;
-}
-
-.review-closed {
   overflow: hidden;
 
-  max-height: 0;
-  padding: 0;
+  margin-top: -5px;
 }
 
-.review-opened {
-  max-height: auto;
+.review-card {
   padding: 30px;
+
+  border-radius: 0 0 5px 5px;
 }
 
 .review-list {
