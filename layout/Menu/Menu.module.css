@@ -60,11 +60,11 @@
 }
 
 .third-level {
-  display: none;
-
   margin-bottom: 20px;
   padding: 0;
 }
+
+.third-level-list-item { overflow: hidden; }
 
 .third-level-item {
   padding: 5px 0;
@@ -73,5 +73,3 @@
   font-weight: 500;
   line-height: 19px;
 }
-
-.third-level-opened { display: block; }

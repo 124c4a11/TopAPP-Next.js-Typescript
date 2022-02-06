@@ -1,8 +1,9 @@
 import cn from 'classnames';
 import { useContext } from 'react';
+import { useRouter } from 'next/router';
 import { AppContext } from '../../context/app.context';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 import styles from './Menu.module.css';
 import { IFirstLevelMenu, IPageItem } from '../../interfaces/menu.interface';
@@ -80,15 +81,36 @@ export const Menu = (): JSX.Element => {
   };
 
   const buildThirdLevel = (pages: IPageItem[], route: string, isOpened?: boolean) => {
-    const thirdLevelClassName = cn(
-      styles['third-level'],
-      {
-        [styles['third-level-opened']]: isOpened
+    const variants = {
+      visible: {
+        transition: {
+          when: 'beforeChildren',
+          staggerChildren: 0.01,
+        }
+      },
+
+      hidden: {}
+    };
+
+    const variantsChildren = {
+      visible: {
+        height: 29,
+        opacity: 1
+      },
+      hidden: {
+        height: 0,
+        opacity: 0
       }
-    );
+    };
 
     return (
-      <ul className={thirdLevelClassName}>
+      <motion.ul
+        layout
+        variants={variants}
+        initial={isOpened ? 'visible' : 'hidden'}
+        animate={isOpened ? 'visible' : 'hidden'}
+        className={styles['third-level']}
+      >
         {pages.map((page) => {
           const path = `/${route}/${page.alias}`;
 
@@ -101,14 +123,18 @@ export const Menu = (): JSX.Element => {
           );
 
           return (
-            <li key={page._id}>
+            <motion.li
+              variants={variantsChildren}
+              key={page._id}
+              className={styles['third-level-list-item']}
+            >
               <Link href={path}>
                 <a className={itemClassName}>{page.category}</a>
               </Link>
-            </li>
+            </motion.li>
           );
         })}
-      </ul>
+      </motion.ul>
     );
   };
 
