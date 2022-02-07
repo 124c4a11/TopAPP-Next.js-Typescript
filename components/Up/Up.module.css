@@ -1,21 +1,5 @@
-.btn {
+.up {
   position: fixed;
   right: 30px;
   bottom: 30px;
-
-  width: 40px;
-  height: 40px;
-
-  cursor: pointer;
-  transition: background-color var(--duration-base);
-
-  border: none;
-  border-radius: 10px;
-  background-color: var(--primary);
-
-  box-shadow: 0 0 4px rgb(0 0 0 / 30%);
-
-  line-height: 1;
 }
-
-.btn:hover { background-color: var(--primary-hover); }

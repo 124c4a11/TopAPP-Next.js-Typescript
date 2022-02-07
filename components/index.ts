@@ -15,3 +15,4 @@ export * from './Product/Product';
 export * from './Review/Review';
 export * from './ReviewForm/ReviewForm';
 export * from './Up/Up';
+export * from './ButtonIcon/ButtonIcon';

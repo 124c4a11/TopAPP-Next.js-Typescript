@@ -1,0 +1,37 @@
+.btn {
+  width: 40px;
+  height: 40px;
+
+  cursor: pointer;
+  transition: background-color var(--duration-base);
+
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+
+  line-height: 1;
+}
+
+.btn svg * {
+  transition: fill var(--duration-base);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+}
+
+.btn-primary svg * { fill: var(--white); }
+
+.btn-primary:hover { background-color: var(--primary-hover); }
+
+.btn-white {
+  background-color: var(--white);
+}
+
+.btn-white svg * { fill: var(--primary); }
+
+.btn-white:hover {
+  background-color: var(--primary);
+}
+
+.btn-white:hover svg * { fill: var(--white); }
