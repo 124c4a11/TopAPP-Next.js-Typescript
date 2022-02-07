@@ -13,6 +13,7 @@ export const Rating = forwardRef(
       isEditable = false,
       setRating,
       error,
+      tabIndex,
       ...props
     }: IRatingProps,
     ref: ForwardedRef<HTMLUListElement>
@@ -85,7 +86,7 @@ export const Rating = forwardRef(
         )}
           ref={ref}
           {...props}
-          tabIndex={isEditable ? 0 : -1}
+          tabIndex={isEditable ? tabIndex : -1}
           onKeyDown={(e: KeyboardEvent<HTMLUListElement>) => isEditable && handleKey(e)}
         >
           {ratingArr.map((item, ndx) => (

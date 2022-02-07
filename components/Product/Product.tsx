@@ -136,7 +136,7 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
           color='blue'
           className={styles['review-card']}
           ref={reviewRef}
-          tabIndex={0}
+          tabIndex={isReviewOpened ? 0 : -1}
         >
           {
             product.reviews.length > 0 &&
@@ -150,7 +150,7 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
               }
             </ul>
           }
-          <ReviewForm productId={product._id} />
+          <ReviewForm productId={product._id} isOpened={isReviewOpened} />
         </Card>
       </motion.div>
     </div>

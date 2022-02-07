@@ -10,7 +10,7 @@ import { Button, Input, P, Rating, Textarea } from '..';
 import { IReviewForm } from './ReviewForm.interface';
 import { API } from '../../helpers/api';
 
-export const ReviewForm = ({ productId, className, ...props }: IReviewFormProps): JSX.Element => {
+export const ReviewForm = ({ productId, isOpened, className, ...props }: IReviewFormProps): JSX.Element => {
   const {
     register,
     control,
@@ -54,6 +54,7 @@ export const ReviewForm = ({ productId, className, ...props }: IReviewFormProps)
           error={errors.name}
           className={styles['input']}
           placeholder='Имя'
+          tabIndex={isOpened ? 0 : -1}
         />
         <Input
           {...register('title', {
@@ -65,6 +66,7 @@ export const ReviewForm = ({ productId, className, ...props }: IReviewFormProps)
           error={errors.title}
           className={styles['input']}
           placeholder='Заголовок отзыва'
+          tabIndex={isOpened ? 0 : -1}
         />
         <div className={styles['rating']}>
           <span>Оценка: </span>
@@ -86,6 +88,7 @@ export const ReviewForm = ({ productId, className, ...props }: IReviewFormProps)
                 ref={field.ref}
                 setRating={field.onChange}
                 error={errors.rating}
+                tabIndex={isOpened ? 0 : -1}
               />
             )}
           />
@@ -100,9 +103,12 @@ export const ReviewForm = ({ productId, className, ...props }: IReviewFormProps)
           error={errors.description}
           className={styles['textarea']}
           placeholder='Текст отзыва'
+          tabIndex={isOpened ? 0 : -1}
         />
         <div className={styles['form-footer']}>
-          <Button>Отправить</Button>
+          <Button
+            tabIndex={isOpened ? 0 : -1}
+          >Отправить</Button>
           <P size='sm'>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</P>
         </div>
       </form>
