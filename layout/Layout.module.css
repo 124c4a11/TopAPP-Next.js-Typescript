@@ -12,10 +12,7 @@
   min-height: 100vh;
 }
 
-.header {
-  display: none;
-  grid-area: header;
-}
+.header { grid-area: header; }
 
 .sidebar { grid-area: sidebar; }
 
@@ -30,9 +27,8 @@
       "header"
       "main"
       "footer";
+    gap: 15px;
   }
-
-  .header { display: block; }
 
   .sidebar { display: none !important; }
 
