@@ -33,11 +33,7 @@ export const Rating = forwardRef(
           }
         );
 
-        return <StarIcon
-          className={starClassName}
-          tabIndex={isEditable ? 0 : -1}
-          onKeyDown={(e: KeyboardEvent<SVGElement>) => isEditable && handleSpace(++ndx, e)}
-        />;
+        return <StarIcon className={starClassName} />;
       });
 
       setRatingArr(updatedArr);
@@ -51,10 +47,25 @@ export const Rating = forwardRef(
       setRating(i);
     };
 
-    const handleSpace = (i: number, e: KeyboardEvent<SVGElement>) => {
-      if (e.code !== 'Space' || !setRating) return;
+    const handleKey = (e: KeyboardEvent<HTMLUListElement>) => {
+      if (!isEditable || !setRating) return;
 
-      setRating(i);
+
+      if (e.code === 'ArrowUp' || e.code === 'ArrowRight') {
+        e.preventDefault();
+
+        if (rating === 5) return;
+
+        !rating ? setRating(1) : setRating(++rating);
+      }
+
+      if (e.code === 'ArrowDown' || e.code === 'ArrowLeft') {
+        e.preventDefault();
+
+        if (rating === 0) return;
+
+        setRating(--rating);
+      }
     };
 
     const ratingItemClassName = cn(
@@ -74,6 +85,8 @@ export const Rating = forwardRef(
         )}
           ref={ref}
           {...props}
+          tabIndex={isEditable ? 0 : -1}
+          onKeyDown={(e: KeyboardEvent<HTMLUListElement>) => isEditable && handleKey(e)}
         >
           {ratingArr.map((item, ndx) => (
             <li

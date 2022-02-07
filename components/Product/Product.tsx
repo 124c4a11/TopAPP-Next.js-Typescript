@@ -33,6 +33,8 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
       behavior: 'smooth',
       block: 'start',
     });
+
+    reviewRef.current?.focus();
   };
 
   return (
@@ -134,6 +136,7 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
           color='blue'
           className={styles['review-card']}
           ref={reviewRef}
+          tabIndex={0}
         >
           {
             product.reviews.length > 0 &&
