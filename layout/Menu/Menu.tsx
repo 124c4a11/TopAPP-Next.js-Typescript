@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { useContext } from 'react';
+import { useContext, KeyboardEvent } from 'react';
 import { useRouter } from 'next/router';
 import { AppContext } from '../../context/app.context';
 import Link from 'next/link';
@@ -21,6 +21,14 @@ export const Menu = (): JSX.Element => {
 
       return item;
     }));
+  };
+
+  const openSecondLevelKey = (e: KeyboardEvent, categoryId: string) => {
+    if (e.code === 'Space' || e.code === 'Enter') {
+      e.preventDefault();
+
+      thirdLevelOpenToggle(categoryId);
+    }
   };
 
   const buildFirstLevel = () => (
@@ -69,6 +77,8 @@ export const Menu = (): JSX.Element => {
             <li key={item._id.secondCategory}>
               <div
                 className={itemClassName}
+                tabIndex={0}
+                onKeyDown={(e: KeyboardEvent) => openSecondLevelKey(e, item._id.secondCategory)}
                 onClick={() => thirdLevelOpenToggle(item._id.secondCategory)}
               >{item._id.secondCategory}</div>
 
@@ -95,11 +105,11 @@ export const Menu = (): JSX.Element => {
     const variantsChildren = {
       visible: {
         height: 29,
-        opacity: 1
+        opacity: 1,
       },
       hidden: {
         height: 0,
-        opacity: 0
+        opacity: 0,
       }
     };
 
@@ -124,12 +134,15 @@ export const Menu = (): JSX.Element => {
 
           return (
             <motion.li
-              variants={variantsChildren}
               key={page._id}
               className={styles['third-level-list-item']}
+              variants={variantsChildren}
             >
               <Link href={path}>
-                <a className={itemClassName}>{page.category}</a>
+                <a
+                  className={itemClassName}
+                  tabIndex={isOpened ? 0 : -1}
+                >{page.category}</a>
               </Link>
             </motion.li>
           );

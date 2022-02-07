@@ -69,6 +69,8 @@
 .third-level-item {
   padding: 5px 0;
 
+  outline-offset: -1px;
+
   font-size: 14px;
   font-weight: 500;
   line-height: 19px;
