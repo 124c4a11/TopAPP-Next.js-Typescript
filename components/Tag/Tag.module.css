@@ -27,7 +27,7 @@
 .tag-gray { background-color: #b3c0d9; }
 
 .tag-green {
-  color: var(--green);
+  color: var(--green-dark);
   background-color: var(--green-light);
 }
 

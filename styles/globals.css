@@ -52,14 +52,15 @@ h3 {
 
 :root {
   --black: #3b434e;
-  --gray-dark: #787d85;
+  --gray-dark: #6c7077;
   --gray: #a4a4a4;
   --gray-light: #ebebeb;
   --white: #fff;
   --red: #fc836d;
+  --green-dark: #007a48;
   --green: #1dc37e;
   --green-light: #c8f8e4;
-  --primary: #7653fc;
+  --primary: #7351f5;
   --primary-hover: #6344df;
   --font-size-base: 18px;
   --font-family:
