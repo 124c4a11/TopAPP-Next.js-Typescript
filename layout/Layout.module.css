@@ -12,6 +12,27 @@
   min-height: 100vh;
 }
 
+.skip-link {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+
+  overflow: hidden;
+
+  height: 0;
+  padding: 0 10px;
+
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary);
+}
+
+.skip-link:focus {
+  height: auto;
+  padding: 5px 10px;
+}
+
 .header { grid-area: header; }
 
 .sidebar { grid-area: sidebar; }
