@@ -14,6 +14,8 @@ export const Sort = ({ sort, setSort, className, ...props }: ISortProps) => (
           [styles['btn-active']]: sort === SortEnum.Rating
         }
       )}
+      aria-selected={sort === SortEnum.Rating}
+      aria-label='Сортировать по рейтингу'
     ><SortIcon className={styles['btn-icon']} />По рейтингу</button>
 
     <button
@@ -24,6 +26,8 @@ export const Sort = ({ sort, setSort, className, ...props }: ISortProps) => (
           [styles['btn-active']]: sort === SortEnum.Price
         }
       )}
+      aria-selected={sort === SortEnum.Price}
+      aria-label='Сортировать по цене'
     ><SortIcon className={styles['btn-icon']} />По цене</button>
   </div>
 );

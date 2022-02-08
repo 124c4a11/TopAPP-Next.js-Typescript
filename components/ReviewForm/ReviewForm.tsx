@@ -17,6 +17,7 @@ export const ReviewForm = ({ productId, isOpened, className, ...props }: IReview
     handleSubmit,
     formState: { errors },
     reset,
+    clearErrors,
   } = useForm<IReviewForm>();
 
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
@@ -55,6 +56,7 @@ export const ReviewForm = ({ productId, isOpened, className, ...props }: IReview
           className={styles['input']}
           placeholder='Имя'
           tabIndex={isOpened ? 0 : -1}
+          aria-invalid={errors.name ? true : false}
         />
         <Input
           {...register('title', {
@@ -67,6 +69,7 @@ export const ReviewForm = ({ productId, isOpened, className, ...props }: IReview
           className={styles['input']}
           placeholder='Заголовок отзыва'
           tabIndex={isOpened ? 0 : -1}
+          aria-invalid={errors.title ? true : false}
         />
         <div className={styles['rating']}>
           <span>Оценка: </span>
@@ -104,22 +107,26 @@ export const ReviewForm = ({ productId, isOpened, className, ...props }: IReview
           className={styles['textarea']}
           placeholder='Текст отзыва'
           tabIndex={isOpened ? 0 : -1}
+          aria-label='Текст отзыва'
+          aria-invalid={errors.description ? true : false}
         />
         <div className={styles['form-footer']}>
           <Button
             tabIndex={isOpened ? 0 : -1}
+            onClick={() => clearErrors()}
           >Отправить</Button>
           <P size='sm'>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</P>
         </div>
       </form>
       {
         isSuccess &&
-        <div className={cn(styles['info'], styles['info-success'])}>
+        <div className={cn(styles['info'], styles['info-success'])} role='alert'>
           <div className={styles['info-title']}>Ваш отзыв отправлен.</div>
           <P>Спасибо, ваш отзыв будет опубликован после проверки.</P>
           <button
             className={styles['info-close-btn']}
             onClick={() => setIsSuccess(false)}
+            aria-label='закрыть оповещение'
           >
             <CloseIcon />
           </button>
@@ -127,12 +134,13 @@ export const ReviewForm = ({ productId, isOpened, className, ...props }: IReview
       }
       {
         error &&
-        <div className={cn(styles['info'], styles['info-error'])}>
+        <div className={cn(styles['info'], styles['info-error'])} role='alert'>
           <div className={styles['info-title']}>Ошибка</div>
           <P>Что-то пошло не так попробуйте обновить страницу</P>
           <button
             className={styles['info-close-btn']}
             onClick={() => setError(undefined)}
+            aria-label='закрыть оповещение'
           >
             <CloseIcon />
           </button>

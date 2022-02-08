@@ -31,6 +31,7 @@ const Layout = ({ children }: ILayoutProps): JSX.Element => {
         ref={mainRef}
         className={styles.main}
         tabIndex={0}
+        role='main'
       >{children}</main>
       <Footer className={styles.footer}></Footer>
     </div>

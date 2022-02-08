@@ -23,7 +23,7 @@ export const Search = ({ className, ...props }: ISearchProps) => {
   };
 
   return (
-    <div className={cn(className, styles['search'])} {...props}>
+    <form className={cn(className, styles['search'])} {...props} role='search'>
       <Input
         className={styles['input']}
         placeholder='Поиск...'
@@ -34,8 +34,9 @@ export const Search = ({ className, ...props }: ISearchProps) => {
       <Button
         appearance='primary'
         className={styles['btn']}
+        aria-label='Искать по сайту'
         onClick={goToSearch}
       ><MagnifierIcon /></Button>
-    </div>
+    </form>
   );
 };

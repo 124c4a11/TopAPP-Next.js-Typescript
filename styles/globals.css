@@ -78,3 +78,16 @@ h3 {
   --duration-base: 0.15s;
   --tablet-width: 765px;
 }
+
+.sr-only:not(:focus):not(:active) {
+  position: absolute;
+
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+
+  width: 1px;
+  height: 1px;
+
+  white-space: nowrap;
+  clip-path: inset(50%);
+}

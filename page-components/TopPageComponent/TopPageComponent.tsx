@@ -26,8 +26,11 @@ export const TopPageComponent = ({ page, products, firstCategory }: ITopPageComp
   return (
     <>
       <header className={styles.header}>
-        <H>{page.title}</H>
-        {products && <Tag color='gray'>{products.length}</Tag>}
+        <H>{page?.title}</H>
+        {
+          products &&
+          <Tag color='gray' aria-label={`${products.length} элементов`}>{products.length}</Tag>
+        }
         <Sort
           sort={sort}
           setSort={setSort}

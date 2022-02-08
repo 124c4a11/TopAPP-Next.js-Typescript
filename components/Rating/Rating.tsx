@@ -88,6 +88,12 @@ export const Rating = forwardRef(
           {...props}
           tabIndex={isEditable ? tabIndex : -1}
           onKeyDown={(e: KeyboardEvent<HTMLUListElement>) => isEditable && handleKey(e)}
+          role={isEditable ? 'slider' : ''}
+          aria-valuemin={0}
+          aria-valuemax={5}
+          aria-valuenow={rating}
+          aria-label={isEditable ? 'укажите рейтинг при помощи стрелок' : `рейтинг ${rating}`}
+          aria-invalid={error ? true : false}
         >
           {ratingArr.map((item, ndx) => (
             <li
@@ -101,7 +107,7 @@ export const Rating = forwardRef(
         </ul>
         {
           error &&
-          <div className={styles['error-msg']}>{error.message}</div>
+          <div className={styles['error-msg']} role='alert'>{error.message}</div>
         }
       </div>
     );

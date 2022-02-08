@@ -59,19 +59,31 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
           <div className={styles['meta']}>
             <div className={styles['meta-item']}>
               <div className={styles['meta-value']}>
-                {priceRu(product.price)}
+                <div>
+                  <span className='sr-only'>цена</span>
+                  {priceRu(product.price)}
+                </div>
                 {
                   product.oldPrice &&
-                  <Tag color='green' size='sm'>{product.price - product.oldPrice}</Tag>
+                  <Tag color='green' size='sm'>
+                    <span className='sr-only'>скидка</span>
+                    {priceRu(product.price - product.oldPrice)}
+                  </Tag>
                 }
               </div>
-              <p className={styles['meta-text']}>Цена</p>
+              <p className={styles['meta-text']} aria-hidden={true}>Цена</p>
             </div>
             <div className={styles['meta-item']}>
-              <div className={styles['meta-value']}>{priceRu(product.credit)}/мес</div>
-              <p className={styles['meta-text']}>В кредит</p>
+              <div className={styles['meta-value']}>
+                <div>
+                  <span className='sr-only'>В кредит</span>
+                  {priceRu(product.credit)}/мес
+                </div>
+              </div>
+              <p className={styles['meta-text']} aria-hidden={true}>В кредит</p>
             </div>
             <div className={cn(styles['meta-item'], styles['meta-rating'])}>
+              <div className='sr-only'>рейтинг {product.reviewAvg ?? product.initialRating} звезд</div>
               <Rating rating={product.reviewAvg ?? product.initialRating} />
               <p className={styles['meta-text']}>
                 <a
@@ -123,6 +135,7 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
             appearance='ghost'
             arrow={isReviewOpened ? 'down' : 'right'}
             onClick={() => setIsReviewOpened(!isReviewOpened)}
+            aria-expanded={isReviewOpened}
           >Читать отзывы</Button>
         </footer>
       </Card>
