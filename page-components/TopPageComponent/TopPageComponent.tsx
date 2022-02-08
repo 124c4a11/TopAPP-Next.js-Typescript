@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import parse from 'html-react-parser';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 import { useEffect, useReducer } from 'react';
 
@@ -16,6 +16,8 @@ export const TopPageComponent = ({ page, products, firstCategory }: ITopPageComp
     products,
     sort: SortEnum.Rating,
   });
+
+  const shouldReduceMotion = useReducedMotion();
 
   const setSort = (sort: SortEnum) => dispatchSort({ type: sort });
 
@@ -42,7 +44,10 @@ export const TopPageComponent = ({ page, products, firstCategory }: ITopPageComp
           <ul className={styles['product-list']}>
             {
               sortedProducts.map((product) => (
-                <motion.li layout key={product._id}>
+                <motion.li
+                  key={product._id}
+                  layout={shouldReduceMotion ? false : true}
+                >
                   <Product product={product} />
                 </motion.li>
               ))
@@ -61,20 +66,20 @@ export const TopPageComponent = ({ page, products, firstCategory }: ITopPageComp
         </section>
       }
       {
-        page.advantages && page.advantages.length > 0 &&
+        page?.advantages && page.advantages.length > 0 &&
         <section className={styles['section']}>
           <H tag='h2' className={styles['section-title']}>Преимущества</H>
           <Advantages advantages={page.advantages} />
         </section>
       }
       {
-        page.seoText &&
+        page?.seoText &&
         <section className={styles['section']}>
           {parse(page.seoText)}
         </section>
       }
       {
-        page.tags &&
+        page?.tags &&
         <section className={styles['section']}>
           <H tag='h2' className={styles['section-title']}>Получаемые навыки</H>
           <TagList tags={page.tags} />

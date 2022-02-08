@@ -3,7 +3,7 @@ import { useContext, KeyboardEvent, useState } from 'react';
 import { useRouter } from 'next/router';
 import { AppContext } from '../../context/app.context';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 import styles from './Menu.module.css';
 import { IFirstLevelMenu, IPageItem } from '../../interfaces/menu.interface';
@@ -13,6 +13,7 @@ export const Menu = (): JSX.Element => {
   const { menu, setMenu, firstCategory } = useContext(AppContext);
   const router = useRouter();
   const [announce, setAnnounce] = useState<'opened' | 'closed' | undefined>();
+  const shouldReduceMotion = useReducedMotion();
 
   const thirdLevelOpenToggle = (secondCategory: string) => {
     setMenu && setMenu(menu.map((item) => {
@@ -98,7 +99,7 @@ export const Menu = (): JSX.Element => {
   const buildThirdLevel = (pages: IPageItem[], route: string, isOpened?: boolean) => {
     const variants = {
       visible: {
-        transition: {
+        transition: shouldReduceMotion ? {} : {
           when: 'beforeChildren',
           staggerChildren: 0.01,
         }
@@ -114,7 +115,7 @@ export const Menu = (): JSX.Element => {
       },
       hidden: {
         height: 0,
-        opacity: 0,
+        opacity: shouldReduceMotion ? 1 : 0,
       }
     };
 
