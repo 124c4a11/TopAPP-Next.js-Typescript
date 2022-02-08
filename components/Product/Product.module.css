@@ -19,7 +19,14 @@
   border-radius: 5px;
 }
 
-.title { margin-bottom: 9px; }
+.title {
+  margin-top: 0;
+  margin-bottom: 9px;
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 27px;
+}
 
 .meta {
   display: flex;

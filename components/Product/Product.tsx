@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 
-import { Button, Card, H, P, Rating, Review, ReviewForm, Tag, TagList } from '..';
+import { Button, Card, P, Rating, Review, ReviewForm, Tag, TagList } from '..';
 import { declOfNum, priceRu } from '../../helpers/helpers';
 
 import styles from './Product.module.css';
@@ -53,7 +53,7 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
             />
           </div>
           <div>
-            <H tag='h3' className={styles['title']}>{product.title}</H>
+            <h2 className={styles['title']}>{product.title}</h2>
             <TagList tags={product.categories} color='ghost' size='sm' />
           </div>
           <div className={styles['meta']}>
