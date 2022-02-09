@@ -61,13 +61,13 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
               <div className={styles['meta-value']}>
                 <div>
                   <span className='sr-only'>цена</span>
-                  {priceRu(product.price)}
+                  {product.price ? priceRu(product.price) : 0}
                 </div>
                 {
                   product.oldPrice &&
                   <Tag color='green' size='sm'>
                     <span className='sr-only'>скидка</span>
-                    {priceRu(product.price - product.oldPrice)}
+                    {product.price ? priceRu(product.price - product.oldPrice) : 0}
                   </Tag>
                 }
               </div>
@@ -77,7 +77,7 @@ export const Product = ({ product, className, ...props }: IProductProps) => {
               <div className={styles['meta-value']}>
                 <div>
                   <span className='sr-only'>В кредит</span>
-                  {priceRu(product.credit)}/мес
+                  {product.credit ? priceRu(product.credit) : 0}/мес
                 </div>
               </div>
               <p className={styles['meta-text']} aria-hidden={true}>В кредит</p>
